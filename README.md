@@ -64,12 +64,12 @@ Complete the following tasks:
 
 - [X] Design the data model and use _knex migrations_ to create the database and tables.
 - [ ] Build an API with endpoints for:
-  - [ ] adding resources.
-  - [ ] retrieving a list of resources.
-  - [ ] adding projects.
   - [ ] retrieving a list of projects.
-  - [ ] adding tasks.
+  - [ ] adding projects.
   - [ ] retrieving a list of tasks. **The list of tasks should include the project name and project description**.
+  - [ ] adding tasks.
+  - [ ] retrieving a list of resources.
+  - [ ] adding resources.
 - [ ] When returning `project` or `task` information, the `completed` property should be `true` or `false`.
 
 For example, instead of returning a `task` that looks like this:
