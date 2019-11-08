@@ -23,14 +23,15 @@ function addProjects(newProject) {
 }
 
 function findTasks() {
-  return db('tasks as t')
-    .join('projects as p')
-    .select('t.*, p.name, p.description')
+  return db
+    .select('t.*', 'p.name as project_name', 'p.description as project_description')
+    .from('tasks as t')
+    .join('projects as p', 't.project_id', 'p.id');
 }
 
 function addTasks(newTask) {
-  return db
-    .insert(newTask, id)
+  return db('tasks')
+    .insert(newTask, 'id')
 }
 
 function findResources() {

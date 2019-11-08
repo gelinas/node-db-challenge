@@ -3,8 +3,8 @@ const helmet = require('helmet');
 const logger = require('./middleware/logger.js');
 
 const projectRouter = require('./projects/projectsRouter.js');
-// const taskRouter = require('./projects/taskRouter.js');
-// const resourceRouter = require('./projects/resourceRouter.js');
+const taskRouter = require('./projects/tasksRouter.js');
+const resourceRouter = require('./projects/resourcesRouter.js');
 
 const server = express();
 
@@ -19,8 +19,8 @@ server.get('/', logger('root api call'), (req, res) => {
 });
 
 server.use('/api/projects', logger('projectRouter'), projectRouter);
-// server.use('/api/tasks', logger('taskRouter'), taskRouter);
-// server.use('/api/resources', logger('resourceRouter'), resourceRouter);
+server.use('/api/tasks', logger('taskRouter'), taskRouter);
+server.use('/api/resources', logger('resourceRouter'), resourceRouter);
 
 // export
 module.exports = server;
