@@ -2,8 +2,9 @@ const express = require('express');
 const helmet = require('helmet');
 const logger = require('./middleware/logger.js');
 
-// const recipeRouter = require('./recipe/recipeRouter.js');
-// const ingredientsRouter = require('./ingredients/ingredientsRouter.js');
+const projectRouter = require('./projects/projectsRouter.js');
+// const taskRouter = require('./projects/taskRouter.js');
+// const resourceRouter = require('./projects/resourceRouter.js');
 
 const server = express();
 
@@ -13,12 +14,13 @@ server.use(express.json());
 
 // routes
 
-server.get('/', (req, res) => {
+server.get('/', logger('root api call'), (req, res) => {
     res.send('<h3>WEBDB-SPRINT-CHALLENGE</h3>')
 });
 
-// server.use('/api/recipes', logger('recipeRouter'), recipeRouter);
-// server.use('/api/ingredients', logger('ingredientsRouter'), ingredientsRouter);
+server.use('/api/projects', logger('projectRouter'), projectRouter);
+// server.use('/api/tasks', logger('taskRouter'), taskRouter);
+// server.use('/api/resources', logger('resourceRouter'), resourceRouter);
 
 // export
 module.exports = server;
