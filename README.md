@@ -38,13 +38,23 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Explain the difference between `Relational Databases` and `SQL`.
+- [X] Explain the difference between `Relational Databases` and `SQL`.
 
-- [ ] Why do tables need a `primary key`?
+Relational databases are a data structure where your information is stored in tables that consist of columns (properties) and rows (entries).
 
-- [ ] What is the name given to a table column that references the primary key on another table.
+SQL, or structured query language, is an optimized language for sorting RDB tables to pull out the pertinent data you require.
 
-- [ ] What do we need in order to have a _many to many_ relationship between two tables.
+- [X] Why do tables need a `primary key`?
+
+Every table needs a primary key to provide a unique identifier for each row of entries and prevent anomolies when querying the databse (false matches or duplicate dat)
+
+- [X] What is the name given to a table column that references the primary key on another table.
+
+Foreign key
+
+- [X] What do we need in order to have a _many to many_ relationship between two tables.
+
+To achieve a many to many relationship while maintain the principles of data normalization (i.e. all data only appears in a table once, every row is unique), we need to create an intermediate table that references the foriegn keys of the two relationships and provides context on why that union is unique.
 
 ## Minimum Viable Product
 
@@ -52,14 +62,14 @@ Take the steps necessary to complete the project from scratch. Start by initiali
 
 Complete the following tasks:
 
-- [ ] Design the data model and use _knex migrations_ to create the database and tables.
+- [X] Design the data model and use _knex migrations_ to create the database and tables.
 - [ ] Build an API with endpoints for:
-  - [ ] adding resources.
-  - [ ] retrieving a list of resources.
-  - [ ] adding projects.
   - [ ] retrieving a list of projects.
-  - [ ] adding tasks.
+  - [ ] adding projects.
   - [ ] retrieving a list of tasks. **The list of tasks should include the project name and project description**.
+  - [ ] adding tasks.
+  - [ ] retrieving a list of resources.
+  - [ ] adding resources.
 - [ ] When returning `project` or `task` information, the `completed` property should be `true` or `false`.
 
 For example, instead of returning a `task` that looks like this:
@@ -98,25 +108,25 @@ The API should return:
 
 A `project` is what needs to be done. We want to store the following data about a `project`:
 
-- [ ] a unique Id.
-- [ ] a name. This column is required.
-- [ ] a description.
-- [ ] a boolean that indicates if the project has been completed. This column cannot be NULL, the default value should be `false`.
+- [X] a unique Id.
+- [X] a name. This column is required.
+- [X] a description.
+- [X] a boolean that indicates if the project has been completed. This column cannot be NULL, the default value should be `false`.
 
 A `resource` is anything needed to complete a project, some examples are: a person, a tool, a meeting room or a software license. We want to store the following data about a `resource`:
 
-- [ ] a unique Id.
-- [ ] a name. This column is required.
-- [ ] a description.
+- [X] a unique Id.
+- [X] a name. This column is required.
+- [X] a description.
 
 The database should not allow resources with duplicate names.
 
 An `task` one of the steps needed to complete the project. We want to store the following data about an `task`.
 
-- [ ] a unique id.
-- [ ] a description of what needs to be done. This column is required.
-- [ ] a notes column to add additional information.
-- [ ] a boolean that indicates if the task has been completed. This column cannot be NULL, the default value should be `false`.
+- [X] a unique id.
+- [X] a description of what needs to be done. This column is required.
+- [X] a notes column to add additional information.
+- [X] a boolean that indicates if the task has been completed. This column cannot be NULL, the default value should be `false`.
 
 ## Stretch Problem
 
@@ -161,7 +171,7 @@ Add an endpoint for retrieving a `project` by its `id` that returns an object wi
 
 Add the remaining CRUD operations for projects and tasks.
 
-Use `knex` to add _data seeding_ scripts for projects and tasks.
+[X] Use `knex` to add _data seeding_ scripts for projects and tasks.
 
 Add support for the concept of `contexts`. A context is something like _at home_, _at work_ or _at computer_. The idea is that some tasks require one or more `contexts` in order to be worked on. For example, the task of _file income taxes_ may require that you are _at home_, _at computer_ and _online_ so if you are _at work_ and look at the list of pending tasks you could do in your current context, filing your taxes will not be one of them.
 
